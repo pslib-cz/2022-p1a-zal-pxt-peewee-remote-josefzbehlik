@@ -4,7 +4,8 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "pxt-magicbit-pca9685-pwmservo": "github:TomasKazda/pxt-magicbit-pca9685-pwmservo#34efb579e9550b93fb36cca39677db18c5de1e86"
     },
     "files": [
         "main.blocks",
@@ -21,5 +22,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
