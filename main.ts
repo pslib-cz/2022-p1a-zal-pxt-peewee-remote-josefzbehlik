@@ -2,6 +2,8 @@ radio.setGroup(13)
 radio.setTransmitSerialNumber(true)
 
 
+let calibrateX = accX
+
 input.onButtonPressed(Button.A, function () {
     radio.sendValue("GO", 18)
 })
