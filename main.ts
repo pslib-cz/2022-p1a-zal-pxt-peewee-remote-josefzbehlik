@@ -16,27 +16,31 @@ basic.forever(function () {
                 accY = input.acceleration(Dimension.Y)
                     Math.round(center)
                 controls = true
-            console.logValue("y", center)
+            console.log(center)
         })
-})
 
-//POSÍLÁNÍ ROZKAZU JET DO PŘEDU NEBO DO ZADU
-if (controls = true) {
-    if (y > center) {
-        radio.sendValue("GO", 18)
+    //POSÍLÁNÍ ROZKAZU JET DO PŘEDU NEBO DO ZADU
+    if (controls = true) {
+        if (y < center) {
+            radio.sendValue("GO", 18)
+        }
+
+        if (y > center) {
+            radio.sendValue("BACK", 17)
+        }
     }
 
-    if (y < center) {
-        radio.sendValue("BACK", 17)
-    }
-}
+    //POSÍLÁNÍ ROZKAZU OTOČIT SE
+    input.onButtonPressed(Button.A, function () {
+        radio.sendValue("RIGHT", 16)
+    })
 
-//POSÍLÁNÍ ROZKAZU OTOČIT SE
-input.onButtonPressed(Button.B, function () {
-    radio.sendValue("RIGHT", 16)
+    //ZASTAVIT
+    input.onButtonPressed(Button.B, function () {
+        radio.sendValue("STOP", 15)
+    })
+
 })
 
-//ZASTAVIT
-input.onButtonPressed(Button.A, function () {
-    radio.sendValue("STOP", 15)
-})
+
+
