@@ -1,46 +1,57 @@
 radio.setGroup(13)
 radio.setTransmitSerialNumber(true)
 
-let accY = 0
-let center = accY
-let y = input.acceleration(Dimension.Y)
+    //OSA Y
+let jizdaY = 0
+let centraceY = jizdaY
 
-let controls = false
+    //OSA X
+let jizdaX = 0
+let centraceX = jizdaX
 
-basic.forever(function () {
-    accY = input.acceleration(Dimension.Y)
+    //CENTRACE
+basic.forever(function() {
+    jizdaY = input.acceleration(Dimension.Y)
+    jizdaX = input.acceleration(Dimension.X)
 
-        input.onButtonPressed(Button.AB, function () {
-            basic.pause(500)
-            center = accY
-                accY = input.acceleration(Dimension.Y)
-                    Math.round(center)
-                controls = true
-            console.log(center)
-        })
+    console.log(jizdaY)
+    input.onButtonPressed(Button.AB, function() {
+        centraceY = jizdaY
+        centraceX = jizdaX
+    })
 
-    //POSÍLÁNÍ ROZKAZU JET DO PŘEDU NEBO DO ZADU
-    if (controls = true) {
-        if (y < center) {
-            radio.sendValue("GO", 18)
-        }
+    Math.round(centraceY)
+    Math.round(centraceX)
+    console.logValue("y", centraceY)
 
-        if (y > center) {
-            radio.sendValue("BACK", 17)
-        }
+    //JÍZDA 
+    if (jizdaY > centraceY) {
+        radio.sendValue("BACK", 14)
+    }
+    if (jizdaY < centraceY) {
+        radio.sendValue("GO", 13)
     }
 
-    //POSÍLÁNÍ ROZKAZU OTOČIT SE
-    input.onButtonPressed(Button.A, function () {
-        radio.sendValue("RIGHT", 16)
-    })
-
-    //ZASTAVIT
-    input.onButtonPressed(Button.B, function () {
-        radio.sendValue("STOP", 15)
-    })
-
+    //OTÁČENÍ
+    if (jizdaX > centraceX) {
+        radio.sendValue("RIGHT", 15)
+    }
+    if (jizdaX < centraceX) {
+        radio.sendValue("LEFT", 16)
+    }
 })
+
+    
+
+
+
+    
+
+
+
+    
+
+
 
 
 
