@@ -7,3 +7,14 @@ basic.forever(function () {
     //console.log(data)
      radio.sendString(data)
 })
+
+let autoModeEnabled = true
+input.onButtonPressed(Button.AB, function() {
+    if (autoModeEnabled === true){
+        radio.sendNumber(0)
+        autoModeEnabled = false
+    } else if (autoModeEnabled === false) {
+        radio.sendNumber(1)
+        autoModeEnabled = true
+    }
+})
