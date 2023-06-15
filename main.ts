@@ -8,23 +8,25 @@ radio.setGroup(13)
 //     // console.log(data)
 //     radio.sendString(data)
 // })
-input.onButtonPressed(Button.AB, function() {
-  if (autoModeEnabled === false){
-    radio.sendNumber(1)
-    autoModeEnabled = true}
-    else{
-          radio.sendNumber(0)
-          autoModeEnabled = false
-    }
-  }  
-)
+// input.onButtonPressed(Button.AB, function() {
+//   if (autoModeEnabled === false){
+//     radio.sendNumber(1)
+//     autoModeEnabled = true}
+//     else{
+//           radio.sendNumber(0)
+//           autoModeEnabled = false
+//     }
+//   }  
+// )
 input.onButtonPressed(Button.A, function () {
 radio.sendNumber(5)
 })
 input.onButtonPressed(Button.B, function () {
 radio.sendNumber(10)
 })
-
+input.onButtonPressed(Button.AB, function() {
+    radio.sendNumber(15)
+})
 
 
 
