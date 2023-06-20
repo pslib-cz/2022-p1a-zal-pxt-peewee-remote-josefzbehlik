@@ -1,7 +1,7 @@
 let data = ""
 let autoModeEnabled = false
 radio.setGroup(13)
-// radio.setTransmitPower(7)
+radio.setTransmitPower(7)
 // radio.setTransmitSerialNumber(true)
 // basic.forever(function () {
 //     data = "" + (input.acceleration(Dimension.X) + 1024).toString() + ";" + (input.acceleration(Dimension.Y) + 1024).toString()
